@@ -3,7 +3,6 @@
 **Course:** Introduction to Robotics and Intelligent Systems  
 **Program:** BSc in Software Engineering, Addis Ababa University (AAU / SiTE)  
 **Academic Year:** 2026  
-**Lecturer & Lab Assistant:** Mohammed Sraj (MSc AI)  
 **Repository:** [https://github.com/bisrat6/lab1_exercise](https://github.com/bisrat6/lab1_exercise)  
 
 ---
