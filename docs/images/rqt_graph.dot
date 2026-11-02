@@ -1,0 +1,62 @@
+digraph G {
+  rankdir=LR;
+  compound=true;
+  bgcolor="#ffffff";
+  node [fontname="Helvetica", fontsize=10];
+  edge [fontname="Helvetica", fontsize=8, color="#475569"];
+
+  // Nodes (ovals)
+  node [shape=ellipse, style="filled,bold", color="#1e40af", fillcolor="#dbeafe", fontcolor="#1e3a8a"];
+  ros_gz_bridge [label="/ros_gz_bridge"];
+  robot_state_publisher [label="/robot_state_publisher"];
+  obstacle_detector [label="/obstacle_detector"];
+  drive_controller [label="/drive_controller"];
+  drive_distance_server [label="/drive_distance_server"];
+  rotate_server [label="/rotate_server"];
+  square_driver [label="/square_driver"];
+
+  // Topics (boxes)
+  node [shape=box, style="filled,rounded", color="#b91c1c", fillcolor="#fee2e2", fontcolor="#991b1b"];
+  topic_cmd_vel [label="/cmd_vel"];
+  topic_odom [label="/odom"];
+  topic_scan [label="/scan"];
+  topic_obstacle [label="/obstacle"];
+  topic_tf [label="/tf"];
+  topic_joint_states [label="/joint_states"];
+  topic_depth_img [label="/depth_camera/image"];
+  topic_depth_pts [label="/depth_camera/points"];
+  topic_imu [label="/imu"];
+
+  // Actions
+  node [shape=component, style="filled,rounded", color="#047857", fillcolor="#d1fae5", fontcolor="#065f46"];
+  action_drive [label="/drive_distance\n(Action)"];
+  action_rotate [label="/rotate\n(Action)"];
+
+  // Edges
+  ros_gz_bridge -> topic_scan;
+  ros_gz_bridge -> topic_odom;
+  ros_gz_bridge -> topic_depth_img;
+  ros_gz_bridge -> topic_depth_pts;
+  ros_gz_bridge -> topic_imu;
+  ros_gz_bridge -> topic_joint_states;
+  topic_joint_states -> robot_state_publisher;
+  robot_state_publisher -> topic_tf;
+
+  topic_scan -> obstacle_detector;
+  obstacle_detector -> topic_obstacle;
+  topic_obstacle -> drive_controller;
+  topic_obstacle -> drive_distance_server;
+
+  topic_odom -> drive_distance_server;
+  topic_odom -> rotate_server;
+
+  drive_distance_server -> topic_cmd_vel;
+  rotate_server -> topic_cmd_vel;
+  topic_cmd_vel -> ros_gz_bridge;
+
+  square_driver -> action_drive [style=dashed, color="#059669", label="goal"];
+  action_drive -> drive_distance_server [style=dashed, color="#059669"];
+
+  square_driver -> action_rotate [style=dashed, color="#059669", label="goal"];
+  action_rotate -> rotate_server [style=dashed, color="#059669"];
+}
