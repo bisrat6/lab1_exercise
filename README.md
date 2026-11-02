@@ -4,7 +4,7 @@
 **Program:** BSc in Software Engineering, Addis Ababa University (AAU / SiTE)  
 **Academic Year:** 2026  
 **Lecturer & Lab Assistant:** Mohammed Sraj (MSc AI)  
-**Repository:** `lab1_exercise`  
+**Repository:** [https://github.com/bisrat6/lab1_exercise](https://github.com/bisrat6/lab1_exercise)  
 
 ---
 
@@ -70,7 +70,7 @@ lab1_exercise/
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws/src
    # Clone this repository as lab1_exercise
-   git clone <YOUR_GITHUB_REPO_URL> lab1_exercise
+   git clone https://github.com/bisrat6/lab1_exercise.git lab1_exercise
    ```
 
 3. **Build the packages with `colcon`:**
@@ -210,21 +210,18 @@ During development and verification of the system across simulation and ROS 2 mi
 
 ---
 
-## Git Submission Guide
+## Repository Link
 
-To push this local repository to your remote GitHub assignment repository:
-
-```bash
-cd "/path/to/lab1_exercise"
-git add .
-git commit -m "Complete Lab 1 exercise: sensors, interfaces, nodes, and verification"
-git remote add origin https://github.com/<YOUR_USERNAME>/<YOUR_REPOSITORY_NAME>.git
-git branch -M main
-git push -u origin main
-```
+This repository is hosted on GitHub:
+- **Repository URL:** [https://github.com/bisrat6/lab1_exercise](https://github.com/bisrat6/lab1_exercise)
+- **Clone command:**
+  ```bash
+  git clone https://github.com/bisrat6/lab1_exercise.git
+  ```
 
 ---
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
